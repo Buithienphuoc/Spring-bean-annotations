@@ -1,5 +1,6 @@
 package rmit.springtut;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import rmit.springtut.di.DependencyInjectionDemoRunner;
 import rmit.springtut.ioc.IocDemoRunner;
@@ -8,8 +9,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static final ClassPathXmlApplicationContext context =
-            new ClassPathXmlApplicationContext("applicationContext.xml");
+    private static final AnnotationConfigApplicationContext context =
+            new AnnotationConfigApplicationContext(MyConfiguration.class);
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("""

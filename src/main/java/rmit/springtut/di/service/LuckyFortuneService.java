@@ -3,9 +3,9 @@ package rmit.springtut.di.service;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HappyFortuneService implements FortuneService{
+public class LuckyFortuneService implements FortuneService{
     @Override
     public String getFortune() {
-        return "Happy coding, 2day is your lucky day!! .... ";
+        return "You will be lucky today";
     }
 }

@@ -2,7 +2,7 @@ package rmit.springtut.ioc.coach;
 
 import org.springframework.stereotype.Component;
 
-@Component("cppCoach")
+@Component
 public class CppCoach implements Coach{
     @Override
     public String getDailyWorkout() {

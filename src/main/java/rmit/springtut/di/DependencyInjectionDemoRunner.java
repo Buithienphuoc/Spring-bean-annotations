@@ -1,19 +1,22 @@
 package rmit.springtut.di;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
+import rmit.springtut.MyConfiguration;
 import rmit.springtut.di.mentor.Mentor;
 
 import java.util.concurrent.TimeUnit;
 
-@Component("dependencyInjectionDemoRunner")
+@Component
 public class DependencyInjectionDemoRunner {
     public void run() throws InterruptedException{
         System.out.println("-----------------------Dependency injection demo------------------------------");
         // Step 1: Load configuration file
         System.out.println("Step 1: Loading configuration file...\n");
         TimeUnit.SECONDS.sleep(3);
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AnnotationConfigApplicationContext context
+                = new AnnotationConfigApplicationContext(MyConfiguration.class);
         // Step 2: Retrieve bean from spring container
         System.out.println("Step 2: Retrieving bean from Spring container...\n");
         TimeUnit.SECONDS.sleep(3);
@@ -22,7 +25,7 @@ public class DependencyInjectionDemoRunner {
         System.out.println("Step 3: Call methods on bean... \n");
         TimeUnit.SECONDS.sleep(3);
         System.out.println("Python mentor says:" + pythonMentor.getDailyFortune() +
-                " " + pythonMentor.getDailyWorkout());
+                "\n" + pythonMentor.getDailyWorkout());
         // Step 4: Close the context
         context.close();
     }
