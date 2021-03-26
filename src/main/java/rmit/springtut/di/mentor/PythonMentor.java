@@ -1,16 +1,20 @@
 package rmit.springtut.di.mentor;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import rmit.springtut.di.service.FortuneService;
 
-@Component("pythonMentor")
+@Component
 public class PythonMentor implements Mentor {
     // Define attribute for the dependency
+    @Autowired
+    @Qualifier("luckyFortuneService")
     private final FortuneService fortuneService;
 
     // Define constructor
-
-    public PythonMentor(FortuneService fortuneService) {
+    @Autowired
+    public PythonMentor(@Qualifier("luckyFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
